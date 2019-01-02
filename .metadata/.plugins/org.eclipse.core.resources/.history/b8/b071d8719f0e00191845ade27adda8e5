@@ -1,0 +1,27 @@
+import org.springframework.beans.factory.ListableBeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.core.io.ClassPathResource;
+
+import com.formation.modele.Adherent;
+import com.formation.service.AdherentService;
+
+public class MainDao {
+
+	public static void main(String[] args) {
+		Adherent a1= new Adherent("C100","Mohammed", "Ali","Rabat");
+		Adherent a2= new Adherent("C200","Hari", "Badr","Casablanca");
+		Adherent a3= new Adherent("C300","EL Inaoui", "Youness","Rabat");
+		ClassPathResource cpr= new ClassPathResource("applicationContext.xml");
+		
+		//Initialisation de la fabrique SPRING, les singletons sont charges
+		ListableBeanFactory bf= new XmlBeanFactory(cpr);
+		
+		//Initiation de la methode getBean en paramettrant le nom du bean
+		AdherentService a11 = (AdherentService) bf.getBean("gestionAdherent");
+		System.out.println(a11.getAllAdherent());
+		//a11.removeAdherent("C300");
+		a12=a11.getAdherentByCode("C100");
+		System.out.println(a12);
+	}// Recherche du fichier de configuration de Spring
+	
+}

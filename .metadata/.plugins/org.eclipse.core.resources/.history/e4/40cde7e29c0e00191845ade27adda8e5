@@ -1,0 +1,12 @@
+import com.formation.modele.Adherent;
+
+public class MainDao {
+
+	public static void main(String[] args) {
+		Adherent a1= new Adherent("C100","Mohammed", "Ali","Rabat");
+		Adherent a2= new Adherent("C200","Hari", "Badr","Casablanca");
+		Adherent a3= new Adherent("C300","EL Inaoui", "Youness","Rabat");
+			
+	}
+
+}
